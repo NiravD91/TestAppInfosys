@@ -10,11 +10,15 @@ import UIKit
 import Foundation
 
 struct IDENTIFIERS {
-    static let CUSTOM_CELL_ID = "customCellId"
-    static let CUSTOM_VC_ID = "CustomTableViewController"
+    static let CUSTOMCELLID = "customCellId"
+    static let CUSTOMVCID = "customTableViewController"
 }
 
-struct GEN_STRINGS {
-    static let NO_DESC = "null"
-    static let NO_URL = "null"
+struct GENSTRINGS {
+    static let NODESC = "null"
+    static let NOURL = "null"
+}
+
+struct ENVIRONMENT {
+    static let APIURL = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"
 }
