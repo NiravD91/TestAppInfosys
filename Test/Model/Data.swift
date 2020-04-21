@@ -13,12 +13,6 @@ struct RowsData: Codable {
     var title: String?
     var description: String?
     var imageHref: String?
-
-    init(title: String?, description: String?, imageHref: String?) {
-        self.title = title
-        self.description = description
-        self.imageHref = imageHref
-    }
 }
 
 struct ListData {
@@ -30,12 +24,14 @@ struct ListData {
 extension ListData: Parceable {
 
     static func parseObject(dictionary: [String: AnyObject]) -> Result<ListData, ErrorResult> {
-        if let rows = dictionary["rows"] as? Array<Any>,
+        if let rows = dictionary["rows"] as? [Any],
             let title = dictionary["title"] as? String {
 
-            let finalRows: [RowsData] = rows.compactMap({ RowsData(title: ($0 as AnyObject).value,
-                                                                   description: ($0 as AnyObject).value,
-                                                                   imageHref: ($0 as AnyObject).value) })
+            let finalRows: [RowsData] = rows.compactMap({
+                RowsData(title: ($0 as AnyObject).value,
+                         description: ($0 as AnyObject).value,
+                         imageHref: ($0 as AnyObject).value) })
+
             let conversion = ListData(title: title, rows: finalRows)
 
             return Result.success(conversion)

@@ -99,5 +99,6 @@ class CustomViewController: UIViewController {
         }
 
         self.viewModel.fetchRows()
+        refreshControl.endRefreshing()
     }
 }

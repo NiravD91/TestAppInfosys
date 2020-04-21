@@ -31,8 +31,8 @@ struct ListViewModel {
         service.fetchList { result in
             DispatchQueue.main.async {
                 switch result {
-                case .success(let converter) :
-                    self.dataSource?.data.value = converter.rows
+                case .success(let listData) :
+                    self.dataSource?.data.value = listData.rows
                 case .failure(let error) :
                     self.onErrorHandling?(error)
                 }
